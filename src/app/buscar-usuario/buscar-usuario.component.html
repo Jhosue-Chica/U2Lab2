@@ -1,0 +1,39 @@
+<div class="conteiner mt-3">
+  <div class="row">
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="cedulausuario" [(ngModel)]="cedulausuario" placeholder="name@example.com">
+        <label for="cedulausuario">Cedula</label>
+      </div>
+    </div>
+    <button type="button" (click)="getUserByCedula()" class="btn btn-primary">Buscar usuario</button>
+
+    <div class="col-12 mt-3">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nombreusuario" [(ngModel)]="nombreusuario" placeholder="" readonly>
+        <label for="nombreusuario">Nombre</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="cedulausuario" [(ngModel)]="cedulausuario" placeholder="" readonly>
+        <label for="cedulausuario">Cedula</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="telefonousuario" [(ngModel)]="telefonousuario" placeholder="" readonly>
+        <label for="telefonousuario">Telefono</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="direccionusuario" [(ngModel)]="direccionusuario" placeholder="" readonly>
+        <label for="direccionusuario">Dirección</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="correousuario" [(ngModel)]="correousuario" placeholder="" readonly>
+        <label for="correousuario">Correo</label>
+      </div>
+    </div>
+
+  </div>
+</div>
