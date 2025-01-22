@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-buscar-usuario',
@@ -10,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './buscar-usuario.component.html',
   styleUrl: './buscar-usuario.component.css'
 })
-export class BuscarUsuarioComponent {
+export class BuscarUsuarioComponent implements OnInit {
 
   public cedulausuario!: string;
   public nombreusuario!: string;
@@ -19,7 +20,19 @@ export class BuscarUsuarioComponent {
   public direccionusuario!: string;
   public usuario: any;
 
-  constructor(public UsuarioService: UsuarioService) { }
+  constructor(
+    public UsuarioService: UsuarioService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if (params['cedula']) {
+        this.cedulausuario = params['cedula'];
+        this.getUserByCedula();
+      }
+    });
+  }
 
   async getUserByCedula() {
     try {
@@ -33,4 +46,6 @@ export class BuscarUsuarioComponent {
       console.log(error);
     }
   }
+
+
 }

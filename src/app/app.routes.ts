@@ -4,6 +4,7 @@ import { InsertarUsuarioComponent } from './insertar-usuario/insertar-usuario.co
 import { LeerUsuariosComponent } from './leer-usuarios/leer-usuarios.component';
 import { ActualizarUsuarioComponent } from './actualizar-usuario/actualizar-usuario.component';
 import { EliminarUsuarioComponent } from './eliminar-usuario/eliminar-usuario.component';
+import { InspeccionarUsuarioComponent } from './inspeccionar-usuario/inspeccionar-usuario.component';
 
 export const routes: Routes = [
   {path: '', redirectTo: 'leerUsuarios', pathMatch: 'full'},
@@ -11,5 +12,6 @@ export const routes: Routes = [
   {path: 'insertarUsuario', component: InsertarUsuarioComponent, pathMatch: 'full'},
   {path: 'leerUsuarios', component: LeerUsuariosComponent, pathMatch: 'full', },
   {path: 'actualizarUsuario/:cedula', component: ActualizarUsuarioComponent },
-  {path: 'eliminarUsuario/:cedula', component: EliminarUsuarioComponent, pathMatch: 'full'}
+  {path: 'eliminarUsuario/:cedula', component: EliminarUsuarioComponent, pathMatch: 'full'},
+  {path: 'inspeccionarUsuario/:cedula', component:InspeccionarUsuarioComponent, pathMatch: 'full'}
 ];

@@ -1,18 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { UsuarioService } from '../usuario.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule , Router} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-leer-usuarios',
-  imports: [CommonModule, RouterModule],
+  imports: [FormsModule,CommonModule, RouterModule],
   templateUrl: './leer-usuarios.component.html',
   styleUrl: './leer-usuarios.component.css'
 })
 export class LeerUsuariosComponent {
   usuarios: any = [];
+  searchCedula: string = '';
 
-  constructor(public UsuarioService: UsuarioService) {
+  constructor(public UsuarioService: UsuarioService, private router: Router) {
     this.getAllUsuarios();
   }
 
@@ -23,6 +25,18 @@ export class LeerUsuariosComponent {
     } catch (error) {
       console.log('Ocurrio un error' + error);
     }
+  }
+
+  async buscarUsuario() {
+    if (this.searchCedula) {
+      this.router.navigate(['/buscarUsuario'], {
+        queryParams: { cedula: this.searchCedula }
+      });
+    }
+  }
+
+  navegarAInsertarUsuario() {
+    this.router.navigate(['/insertarUsuario']);
   }
 
 }

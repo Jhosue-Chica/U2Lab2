@@ -4,15 +4,26 @@
       <div class="card shadow">
         <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
           <h3 class="mb-0">Lista de Usuarios</h3>
-          <button class="btn btn-light" [routerLink]="['/insertarUsuario']">
+          <button class="btn btn-light" (click)="navegarAInsertarUsuario()">
             <i class="bi bi-plus-circle me-2"></i>Nuevo Usuario
           </button>
         </div>
+        <div class="card-body border-bottom">
+          <div class="input-group">
+            <input type="text" class="form-control" [(ngModel)]="searchCedula"
+                   placeholder="Buscar por cédula...">
+            <button class="btn btn-outline-primary" (click)="buscarUsuario()">
+              <i class="bi bi-search"></i> Buscar
+            </button>
+          </div>
+        </div>
         <div class="card-body p-0">
           <div class="list-group list-group-flush">
-            <div class="list-group-item hover-effect" *ngFor="let usuario of usuarios">
+            <div class="list-group-item hover-effect cursor-pointer"
+                 *ngFor="let usuario of usuarios"
+                 [routerLink]="['/inspeccionarUsuario', usuario.cedulausuario]">
               <div class="row align-items-center">
-                <div class="col-md-9">
+                <div class="col-12">
                   <div class="d-flex justify-content-between align-items-center mb-2">
                     <h5 class="mb-0 text-primary">{{usuario.nombreusuario}}</h5>
                     <span class="badge bg-secondary">{{usuario.cedulausuario}}</span>
@@ -26,18 +37,6 @@
                     </p>
                   </div>
                 </div>
-                <div class="col-md-3 text-end">
-                  <button class="btn btn-outline-primary"
-                          [routerLink]="['/actualizarUsuario', usuario.cedulausuario]">
-                    <i class="bi bi-pencil-square me-2"></i>
-                    Editar
-                  </button>
-                  <button class="btn btn-outline-danger"
-                          [routerLink]="['/eliminarUsuario', usuario.cedulausuario]">
-                    <i class="bi bi-trash me-2"></i>
-                    Eliminar
-                  </button>
-                </div>
               </div>
             </div>
           </div>
@@ -45,4 +44,4 @@
       </div>
     </div>
   </div>
-</div>
+ </div>
