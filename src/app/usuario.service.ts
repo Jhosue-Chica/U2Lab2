@@ -72,4 +72,20 @@ export class UsuarioService {
         });
     });
   }
+
+  deleteUser(cedula: string) {
+    console.log('Eliminando usuario con cédula:', cedula);
+    return new Promise((resolve) => {
+      this.http.delete(this.url + 'eliminarUsuario/' + cedula)
+        .subscribe({
+          next: (data) => {
+            console.log('Usuario eliminado:', data);
+            resolve(data);
+          },
+          error: (error) => {
+            console.log('Error al eliminar el usuario:', error);
+          }
+        });
+    });
+  }
 }

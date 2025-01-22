@@ -1,0 +1,38 @@
+<!-- eliminar-usuario.component.html -->
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-danger">
+        <div class="card-header bg-danger text-white">
+          <h3 class="mb-0">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+            Confirmar Eliminación
+          </h3>
+        </div>
+
+        <div class="card-body p-4 text-center" *ngIf="usuario">
+          <i class="bi bi-trash-fill text-danger" style="font-size: 4rem;"></i>
+
+          <h4 class="mt-4">¿Está seguro de eliminar este usuario?</h4>
+
+          <div class="alert alert-warning mt-3">
+            <p class="mb-1"><strong>Nombre:</strong> {{usuario[0].nombreusuario}}</p>
+            <p class="mb-1"><strong>Cédula:</strong> {{usuario[0].cedulausuario}}</p>
+            <p class="mb-0"><strong>Correo:</strong> {{usuario[0].correousuario}}</p>
+          </div>
+
+          <div class="d-grid gap-2 mt-4">
+            <button class="btn btn-danger" (click)="confirmarEliminacion()">
+              <i class="bi bi-trash me-2"></i>
+              Sí, Eliminar Usuario
+            </button>
+            <button class="btn btn-outline-secondary" (click)="cancelar()">
+              <i class="bi bi-x-circle me-2"></i>
+              Cancelar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

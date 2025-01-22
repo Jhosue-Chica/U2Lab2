@@ -11,7 +11,7 @@ import { UsuarioService } from '../usuario.service';
   styleUrl: './actualizar-usuario.component.css'
 })
 export class ActualizarUsuarioComponent implements OnInit {
-  public cedulaOriginal!: string; // Nueva variable para guardar la cédula original
+  public cedulaOriginal!: string;
   public cedulausuario!: string;
   public nombreusuario!: string;
   public correousuario!: string;
@@ -29,7 +29,7 @@ export class ActualizarUsuarioComponent implements OnInit {
     this.route.params.subscribe(params => {
       const cedula = params['cedula'];
       if (cedula) {
-        this.cedulaOriginal = cedula; // Guardamos la cédula original
+        this.cedulaOriginal = cedula;
         this.cedulausuario = cedula;
         this.cargarDatosUsuario(cedula);
       }
@@ -64,7 +64,7 @@ export class ActualizarUsuarioComponent implements OnInit {
   buildAndGetUpdatedUsuarioObject() {
     return {
       nombreusuario: this.nombreusuario,
-      cedulausuario: this.cedulausuario, // Esta puede ser la nueva cédula
+      cedulausuario: this.cedulausuario,
       telefonousuario: this.telefonousuario,
       direccionusuario: this.direccionusuario,
       correousuario: this.correousuario,
