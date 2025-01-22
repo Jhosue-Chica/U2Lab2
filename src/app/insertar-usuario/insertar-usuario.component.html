@@ -1,0 +1,99 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h3 class="mb-0">
+            <i class="bi bi-person-plus-fill me-2"></i>
+            Registrar Nuevo Usuario
+          </h3>
+        </div>
+
+        <div class="card-body p-4">
+          <!-- Formulario -->
+          <form>
+            <div class="form-floating mb-3">
+              <input type="text"
+                     class="form-control"
+                     id="nombreusuario"
+                     [(ngModel)]="nombreusuario"
+                     name="nombreusuario"
+                     placeholder=""
+                     required>
+              <label for="nombreusuario">
+                <i class="bi bi-person-fill me-2"></i>Nombre
+              </label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text"
+                     class="form-control"
+                     id="cedulausuario"
+                     [(ngModel)]="cedulausuario"
+                     name="cedulausuario"
+                     placeholder=""
+                     required>
+              <label for="cedulausuario">
+                <i class="bi bi-card-text me-2"></i>Cédula
+              </label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="tel"
+                     class="form-control"
+                     id="telefonousuario"
+                     [(ngModel)]="telefonousuario"
+                     name="telefonousuario"
+                     placeholder=""
+                     required>
+              <label for="telefonousuario">
+                <i class="bi bi-telephone-fill me-2"></i>Teléfono
+              </label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text"
+                     class="form-control"
+                     id="direccionusuario"
+                     [(ngModel)]="direccionusuario"
+                     name="direccionusuario"
+                     placeholder=""
+                     required>
+              <label for="direccionusuario">
+                <i class="bi bi-geo-alt-fill me-2"></i>Dirección
+              </label>
+            </div>
+
+            <div class="form-floating mb-4">
+              <input type="email"
+                     class="form-control"
+                     id="correousuario"
+                     [(ngModel)]="correousuario"
+                     name="correousuario"
+                     placeholder=""
+                     required>
+              <label for="correousuario">
+                <i class="bi bi-envelope-fill me-2"></i>Correo
+              </label>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button type="button"
+                      (click)="saveNewUsuario()"
+                      class="btn btn-primary btn-lg">
+                <i class="bi bi-save-fill me-2"></i>
+                Guardar Usuario
+              </button>
+              <button type="button"
+                      [routerLink]="['/leerUsuarios']"
+                      class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>
+                Volver
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
